@@ -1,0 +1,41 @@
+<html>
+
+<head>
+	<script src="https://unpkg.com/vue"></script>
+	<script src="./vuejs.js"></script>
+</head>
+
+<body>
+	<div id="app">
+		{{ message }}
+	</div>
+
+	<script>
+		const axios = require('axios');
+		var app = new Vue({
+			el: '#app',
+			data: {
+				message: 'Hello Vue!'
+			},
+			methods: {
+				getTodo() {
+					
+					axios.get('https://jsonplaceholder.typicode.com/todos/1')
+						.then(function (response) {
+							// handle success
+							console.log(response);
+						})
+						.catch(function (error) {
+							// handle error
+							console.log(error);
+						})
+						.then(function () {
+							// always executed
+						});
+				}
+			}
+		})
+	</script>
+</body>
+
+</html>
